@@ -1,0 +1,19 @@
+[source]
+type = "N2N"
+address = "relays-new.cardano-mainnet.iohk.io:3001"
+
+[[reducers]]
+type = "AddressByAdaHandle"
+policy_id_hex = "f0ff48bbb7bbe9d59a40f1ce90e9e9d0ff5002ec48f232b49ca0fb9a"
+
+[storage]
+type = "Redis"
+connection_params = "redis://redis:6379"
+
+[chain]
+type = "Mainnet"
+
+[intersect]
+type = "Origin"
+# type = "Point"
+# value = [72476575,"45a3286d6438799156172487480452512d83df63670c4f719d38f0eeded68083"]

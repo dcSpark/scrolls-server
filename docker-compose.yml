@@ -1,0 +1,52 @@
+version: '3.7'
+
+services:
+  # proxy:
+  #   image: nginx:alpine
+  #   container_name: proxy
+  #   ports:
+  #     - '4040:4040'
+  #   volumes:
+  #     - ./nginx.conf:/etc/nginx/nginx.conf
+  #   restart: 'unless-stopped'
+  #   networks:
+  #     - backend
+  server:
+    build:
+      context: ./
+      target: development-build-stage
+      dockerfile: Dockerfile
+    container_name: server
+    ports:
+      - '4040:4040'
+    volumes:
+      - ./:/app
+      - /app/node_modules
+    links:
+      - redis
+    restart: 'unless-stopped'
+    networks:
+      - backend
+  scrolls:
+    image: ghcr.io/txpipe/scrolls:v0.4.0
+    command: [ "daemon" ]
+    environment:
+      - RUST_LOG=info
+    volumes:
+      - ./daemon.toml:/etc/scrolls/daemon.toml
+    links:
+      - redis
+  redis:
+    image: redis
+    volumes:
+      - ./data:/data
+    ports:
+      - "6379:6379"
+
+networks:
+  backend:
+    driver: bridge
+
+volumes:
+  data:
+    driver: local
