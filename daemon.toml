@@ -15,5 +15,3 @@ type = "Mainnet"
 
 [intersect]
 type = "Origin"
-# type = "Point"
-# value = [72476575,"45a3286d6438799156172487480452512d83df63670c4f719d38f0eeded68083"]

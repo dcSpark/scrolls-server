@@ -21,7 +21,7 @@ class UserService {
   }
 
   public async createUser(userData: CreateUserDto): Promise<User> {
-    if (isEmpty(userData)) throw new HttpException(400, "userData is empty");
+    if (isEmpty(userData)) throw new HttpException(400, 'userData is empty');
 
     const findUser: User = this.users.find(user => user.email === userData.email);
     if (findUser) throw new HttpException(409, `This email ${userData.email} already exists`);
@@ -34,7 +34,7 @@ class UserService {
   }
 
   public async updateUser(userId: number, userData: CreateUserDto): Promise<User[]> {
-    if (isEmpty(userData)) throw new HttpException(400, "userData is empty");
+    if (isEmpty(userData)) throw new HttpException(400, 'userData is empty');
 
     const findUser: User = this.users.find(user => user.id === userId);
     if (!findUser) throw new HttpException(409, "User doesn't exist");
