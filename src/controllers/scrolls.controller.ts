@@ -6,12 +6,7 @@ class ScrollsController {
     try {
       console.log('Connected to redis');
 
-      const redisClient = createClient({
-        socket: {
-          host: '127.0.0.1',
-          port: 6379,
-        },
-      });
+      const redisClient = createClient({ url: process.env.REDIS_URL });
       console.log('Connected to redis 55');
 
       //   const address = await redisClient.get(req.query.handle.toString());

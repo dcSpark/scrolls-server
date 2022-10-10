@@ -24,6 +24,8 @@ services:
       - /app/node_modules
     links:
       - redis
+    environment:
+    - REDIS_URL=redis://cache
     restart: 'unless-stopped'
     networks:
       - backend
