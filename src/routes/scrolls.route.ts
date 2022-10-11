@@ -13,7 +13,7 @@ class ScrollsRoute implements Routes {
   }
 
   private initializeRoutes() {
-    this.router.get(`${this.path}addressByAdaHandle`, validationMiddleware('query'), this.scrollsController.addressByAdaHandle);
+    this.router.get(`${this.path}/addressByAdaHandle`, this.scrollsController.addressByAdaHandle);
   }
 }
 

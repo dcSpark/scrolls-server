@@ -24,6 +24,8 @@ services:
       - /app/node_modules
     links:
       - redis
+    depends_on:
+      - redis
     environment:
     - REDIS_URL=redis://cache
     restart: 'unless-stopped'
@@ -38,15 +40,19 @@ services:
       - ./daemon.toml:/etc/scrolls/daemon.toml
     links:
       - redis
+    networks:
+      - backend
   redis:
     image: redis
     volumes:
       - ./data:/data
     ports:
       - "6379:6379"
-    container_name: cache
-    expose:
-      - 6379
+    networks:
+      - backend
+    # container_name: cache
+    # expose:
+    #   - 6379
 
 networks:
   backend:
