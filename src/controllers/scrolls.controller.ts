@@ -20,6 +20,11 @@ class ScrollsController {
       } catch (e) {
         console.log('ERROR: ', e);
       }
+      const handleParam = req.query.handle;
+
+      if (!handleParam) {
+        res.status(400).send({ error: 'Invalid query param' });
+      }
       const handle = req.query.handle.toString();
 
       const address = await redisClient.get(handle);
