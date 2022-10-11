@@ -14,4 +14,6 @@ connection_params = "redis://redis:6379"
 type = "Mainnet"
 
 [intersect]
-type = "Origin"
+# type = "Origin"
+type = "Point"
+value = [66719257, "701fceedbd279d04d4c958f693bc7a85ace679d878c355edffbfdcd6bf631de0"]

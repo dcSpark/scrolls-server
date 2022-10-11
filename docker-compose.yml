@@ -27,7 +27,7 @@ services:
     depends_on:
       - redis
     environment:
-    - REDIS_URL=redis://cache
+    - REDIS_URL=redis://redis
     restart: 'unless-stopped'
     networks:
       - backend
