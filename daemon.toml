@@ -18,3 +18,8 @@ type = "Mainnet"
 # type = "Origin"
 type = "Point"
 value = [47931333, "847543d30b99cbb288bee3064f83ff50140cf944ce60fa5d356f27611e94b1f0"]
+
+# # preprod intersection point
+# [intersect]
+# type = "Point"
+# value = [5861832, "66db4adde5190d3d971228b4718e1a56100856d4c65ae271e26cc4152ef341a7"]
