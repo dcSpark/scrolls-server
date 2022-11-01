@@ -35,6 +35,27 @@ class ScrollsController {
       next(error);
     }
   };
+
+  public latestBlock = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      if (!redisClient.isOpen) {
+        await redisClient.connect();
+      }
+
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
+      try {
+      } catch (e) {
+        console.log('ERROR IN LATEST BLOCK: ', e);
+      }
+
+      const blockHash = await redisClient.get('_cursor');
+
+      res.status(200).send({ block: blockHash });
+    } catch (error) {
+      console.log('REDIS ERROR:', error);
+      next(error);
+    }
+  };
 }
 
 export default ScrollsController;
