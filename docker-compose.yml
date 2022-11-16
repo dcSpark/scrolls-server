@@ -28,6 +28,8 @@ services:
       - redis
     environment:
     - REDIS_URL=redis://redis
+    - LOG_DIR=logs
+    - PORT=4040
     restart: 'unless-stopped'
     networks:
       - backend
