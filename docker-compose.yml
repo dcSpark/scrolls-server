@@ -37,7 +37,7 @@ services:
     image: ghcr.io/txpipe/scrolls:v0.4.2
     command: [ "daemon" ]
     environment:
-      - RUST_LOG=info
+      - RUST_LOG=debug
     volumes:
       - ./daemon.toml:/etc/scrolls/daemon.toml
     links:
