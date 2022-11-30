@@ -29,7 +29,7 @@ services:
     environment:
     - REDIS_URL=redis://redis
     - LOG_DIR=logs
-    - PORT=4040
+    # - PORT=4040 configured by .env.production.local
     restart: 'unless-stopped'
     networks:
       - backend
